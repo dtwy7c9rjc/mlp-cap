@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    border-bottom: 1px solid #222222;
+    position: sticky;
+    top: 0;
+    background: #0a0a0a;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: #aaaaaa;
+}
+
+section {
+    min-height: 70vh;
+    padding: 100px 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#inicio {
+    min-height: 90vh;
+    text-align: center;
+    align-items: center;
+}
+
+#inicio h2 {
+    font-size: clamp(60px, 12vw, 140px);
+    letter-spacing: 12px;
+}
+
+#inicio p {
+    color: #aaaaaa;
+    font-size: 20px;
+    margin: 20px 0 35px;
+}
+
+#inicio a {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#coleccion {
+    background: #111111;
+}
+
+#coleccion h2,
+#nosotros h2,
+#contacto h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+article {
+    border-top: 1px solid #333333;
+    padding: 30px 0;
+}
+
+article h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+article p,
+#nosotros p,
+#contacto p {
+    color: #aaaaaa;
+    max-width: 600px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #222222;
+    color: #666666;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        padding: 70px 6%;
+    }
+
+    #inicio h2 {
+        letter-spacing: 5px;
+    }
+}img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.producto {
+    border: 1px solid #222222;
+    padding: 20px;
+}
+
+.producto img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.producto h3 {
+    font-size: 22px;
+    margin: 15px 0 8px;
+}
+
+.producto p {
+    margin: 6px 0;
+}
+
+.producto span {
+    font-size: 16px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.producto {
+    border: 1px solid #222222;
+    padding: 20px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    border-color: #444444;
+}
+
+.producto img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.producto h3 {
+    font-size: 22px;
+    margin: 18px 0 8px;
+}
+
+.producto p {
+    margin: 6px 0;
+    color: #bdbdbd;
+}
+
+.producto span {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =====================================================
+   TARJETA CON MARCO DE HIELO
+   ===================================================== */
+
+.producto.hielo-prueba {
+    position: relative;
+    overflow: visible;
+
+    /* La tarjeta mantiene su tamaño normal */
+    z-index: 1;
+}
+
+
+/* =====================================================
+   MARCO PNG
+   ===================================================== */
+
+.producto.hielo-prueba .hielo-marco {
+    position: absolute;
+
+    /* El marco rodea TODA la tarjeta */
+    top: -45px;
+    left: -40px;
+    right: -40px;
+    bottom: -45px;
+
+    background-image: url("imagenes/marco-hielo.png");
+    background-repeat: no-repeat;
+
+    /* Centrado perfecto */
+    background-position: center;
+
+    /* El PNG se adapta exactamente al tamaño */
+    background-size: 100% 100%;
+
+    pointer-events: none;
+
+    /* El marco queda encima de la tarjeta */
+    z-index: 10;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease,
+        filter 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =====================================================
+   CONTENIDO DE LA TARJETA
+   ===================================================== */
+
+.producto.hielo-prueba img,
+.producto.hielo-prueba h3,
+.producto.hielo-prueba p,
+.producto.hielo-prueba span {
+    position: relative;
+    z-index: 11;
+}
+
+
+/* =====================================================
+   HOVER
+   ===================================================== */
+
+.producto.hielo-prueba:hover .hielo-marco {
+    opacity: 1;
+
+    filter:
+        drop-shadow(0 0 3px rgba(255,255,255,1))
+        drop-shadow(0 0 10px rgba(120,220,255,0.9))
+        drop-shadow(0 0 22px rgba(40,160,255,0.65));
+
+    transform: scale(1.01);
+}
+
+
+/* =====================================================
+   PEQUEÑO MOVIMIENTO DE LA TARJETA
+   ===================================================== */
+
+.producto.hielo-prueba:hover {
+    transform: translateY(-3px);
+}
