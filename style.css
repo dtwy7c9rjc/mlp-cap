@@ -373,10 +373,10 @@ footer {
 
     /* MARCO DE HIELO EN CELULAR */
     .producto.hielo-prueba .hielo-marco {
-        top: -25px;
-        left: -22px;
-        right: -22px;
-        bottom: -25px;
+        top: -30px;
+        left: -25px;
+        right: -25px;
+        bottom: -30px;
     }
 }
 
